@@ -1,0 +1,22 @@
+<?php 
+$grade = 95;
+$name = "Curry";
+if ($grade >= 80){
+	print $name."成績:" .$grade . "水哦!<br/>";
+}
+elseif ($grade >= 70){
+	print "soso啦<br/>";
+}
+elseif($grade >= 60){
+	print "哈哈ㄏ <br/>";
+}
+else {
+	print "8777"."<br/>";
+}
+
+$value = -25;
+if ($value < 0 ){
+	$value = - $value;
+}
+print "絕對值=" .$value ."<br/>";
+?>
