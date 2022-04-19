@@ -1,0 +1,12 @@
+<?php 
+$grade = 85;
+$name = "Curry";
+if ($grade >= 60){
+	print $name."成績:" .$grade . "及格!<br/>";
+}
+$value = -25;
+if ($value < 0 ){
+	$value = - $value;
+}
+print "絕對值=" .$value ."<br/>";
+?>
