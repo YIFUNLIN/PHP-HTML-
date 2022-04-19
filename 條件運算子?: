@@ -1,0 +1,6 @@
+<?php
+$hour = 10;
+$str = ($hour >= 12)? "PM":"AM";
+$hour = ($hour >= 12)? $hour-12:$hour;
+print "目前時間為:".$hour.$str;
+?>
