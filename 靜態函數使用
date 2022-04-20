@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<?php
+function nonstaticVar(){
+	$count = 0;
+	$count += 2;
+	return $count;
+}
+
+function staticVar(){
+	static $count = 0;
+	$count += 2;
+	return $count;
+}
+?>
+</head>
+<body>
+
+<?php
+$v1 = nonstaticVar();
+$v2 = nonstaticVar();
+print "非靜態: $v1 ,$v2 <br/>";
+$v1 = staticVar();
+$v2 = staticVar();
+print "靜態: $v1 , $v2 <br/>";
+?>
+</body>
+</html> 
