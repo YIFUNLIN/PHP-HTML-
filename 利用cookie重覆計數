@@ -1,0 +1,25 @@
+<?php 
+$dateStr = date("2023-12-31 23:57:59");    //設定想要cookie結束紀錄的時間
+if(isset($_COOKIE['counter'])){            //用isset()函數檢查cookie的值是否存在
+  $counter = $_COOKIE['counter'];          //  $_COOKIE可以將cookie的值讀出，若cookie存在，則將值加到變數中
+  $counter++;                              //累積次數用
+  setcookie("counter",$counter,strtotime($dateStr)); //設定瀏覽次數為變數counter的值，到期時間為dateStr
+}
+else{
+  setcookie("counter",'0',strtotime($dateStr));   //將cookie的值預設為0
+  header("Location: cookie.php");                 //利用header()函數重新載入本頁，即可刷新今日的瀏覽次數，後面放此檔案的檔名
+}
+?>
+<<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>今日瀏覽次數</title>
+  </head>
+  <body>
+    <?php
+    echo "您今日瀏覽本頁的次數為".$counter."次";
+    ?>
+  </body>
+</html>
+
