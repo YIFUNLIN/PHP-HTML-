@@ -1,0 +1,31 @@
+<<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>haha</title>
+  </head>
+  <body>
+    <?php
+    $link = @mysqli_connect('localhost:3306','root','','myschool');    #建立跟mysql的資料庫連接
+    
+    $myschool = 'myschool';   #指定要連接的資料庫給變數
+    if(!mysqli_select_db($link,$myschool))   #測試跟資料庫是否連線成功
+        die('無法開啟 $myschool 資料庫<br/>');
+    else
+        echo "資料庫: $myschool 開啟成功<br/>";
+
+    $sql = "SELECT * FROM student";       #指定sql查詢資料庫裡的資料表
+    mysqli_query($link,'SET NAMES utf8');   #指定要送出utf-8編碼的mysql指令
+    #送出mysql的查詢指令
+    if($result = mysqli_query($link,$sql)){      #result存放了此資料表的所有資料
+        echo "<b>學生資料:</b><br/>";       
+        while($row = mysqli_fetch_assoc($result)){    #利用 mysqli_fetch_assoc()以列為單位，取得每一列的資料
+            echo $row['sno']."-".$row['name']."<br/>";
+        }
+        mysqli_free_result($result);          #釋放占用的記憶體
+    }    
+
+    mysqli_close($link);      #關閉資料庫連接
+    ?>
+  </body>
+</html>
